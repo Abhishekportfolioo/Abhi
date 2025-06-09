@@ -3,9 +3,1530 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhishek Dangi - Portfolio</title>
+    <title>Abhishek Dangi - Textile Technology Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+
+:root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --secondary-gradient: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
+    --dark-gradient: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --shadow-primary: 0 20px 60px rgba(102, 126, 234, 0.3);
+    --shadow-secondary: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --text-primary: #2c3e50;
+    --text-secondary: #7f8c8d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: var(--primary-gradient);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Dark mode styles */
+body.dark {
+    background: #181825 !important;
+    color: #e0e0e0 !important;
+}
+body.dark .section,
+body.dark header,
+body.dark .cta-section,
+body.dark .sticky-nav {
+    background: #232336 !important;
+    color: #e0e0e0 !important;
+}
+body.dark .project-card,
+body.dark .skill-category,
+body.dark .experience-item {
+    background: #1c1c2a !important;
+    color: #e0e0e0 !important;
+}
+body.dark .project-card .project-title,
+body.dark .skill-category h3 {
+    color: #97a0ff !important;
+}
+body.dark .btn-primary {
+    background: #232336 !important;
+    color: #97a0ff !important;
+    border-color: #97a0ff !important;
+}
+body.dark .btn-secondary {
+    background: transparent !important;
+    color: #e0e0e0 !important;
+    border-color: #97a0ff !important;
+}
+body.dark .footer-social a {
+    color: #e0e0e0 !important;
+}
+body.dark .footer-social a:hover {
+    color: #764ba2 !important;
+}
+body.dark input,
+body.dark textarea {
+    background: #22243a !important;
+    color: #e0e0e0 !important;
+    border-color: #444 !important;
+}
+body.dark .read-aloud-btn {
+    background: #232336 !important;
+    color: #97a0ff !important;
+}
+body.dark .sticky-nav a {
+    color: #e0e0e0 !important;
+}
+
+.dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1500;
+    background: var(--primary-gradient);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.2);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.dark-mode-toggle:hover {
+    transform: scale(1.1);
+}
+
+body.dark .dark-mode-toggle {
+    background: var(--secondary-gradient);
+    color: #232336;
+}
+
+/* Dark mode heading styles */
+body.dark .section h2,
+body.dark .section h3,
+body.dark .job-title,
+body.dark .project-title,
+body.dark .skill-category h3 {
+    color: #e0e0e0 !important;
+}
+
+body.dark .section h2::after {
+    background: #97a0ff !important;
+}
+
+body.dark .company {
+    color: #97a0ff !important;
+}
+
+body.dark .duration {
+    color: #b0b0b0 !important;
+}
+
+body.dark .section,
+body.dark .experience-item,
+body.dark .project-card,
+body.dark .skill-category {
+    color: #e0e0e0 !important;
+}
+
+body.dark .project-card:hover .project-title,
+body.dark .experience-item:hover .job-title {
+    color: white !important;
+}
+
+body.dark #contact-form input,
+body.dark #contact-form textarea,
+body.dark #contact-form input::placeholder,
+body.dark #contact-form textarea::placeholder {
+    color: #e0e0e0 !important;
+}
+
+body.dark .timeline::before {
+    background: #97a0ff !important;
+}
+
+body.dark .timeline-item::before {
+    background: #97a0ff !important;
+    border-color: #232336 !important;
+}
+body.dark .cert-badge {
+    background: #97a0ff !important;
+    color: #232336 !important;
+}
+body.dark .read-aloud-btn {
+    background: #97a0ff !important;
+    color: #232336 !important;
+}
+body.dark .side-nav li a {
+    color: #e0e0e0 !important;
+}
+
+body.dark .side-nav li a:hover, 
+body.dark .side-nav li a.active {
+    background: rgba(151, 160, 255, 0.2) !important;
+}
+
+/* Dark mode contact info styles */
+body.dark .contact-info .contact-item {
+    background: rgba(151, 160, 255, 0.1) !important;
+    border-color: rgba(151, 160, 255, 0.3) !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark .contact-info .contact-item:hover {
+    background: var(--primary-gradient) !important;
+    color: white !important;
+}
+
+body.dark .contact-info .contact-item i {
+    color: #97a0ff !important;
+}
+
+body.dark .contact-info .contact-item:hover i {
+    color: white !important;
+}
+body.dark .contact-item::before {
+    background: var(--primary-gradient) !important;
+}
+
+body.dark .contact-item:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4) !important;
+}
+body.dark .contact-info,
+body.dark .contact-info a:not(.contact-item) {
+    color: #e0e0e0 !important;
+}
+
+body.dark .cta-section .btn-secondary {
+    border-color: #97a0ff !important;
+    color: #97a0ff !important;
+}
+
+body.dark .cta-section .btn-secondary:hover {
+    color: #232336 !important;
+}
+body.dark .footer-social a {
+    color: #97a0ff !important;
+}
+
+body.dark .footer-social a:hover {
+    color: #e0e0e0 !important;
+}
+
+/* Complete dark mode contact section */
+body.dark .contact-info .contact-item {
+    background: rgba(151, 160, 255, 0.1) !important;
+    border: 1px solid rgba(151, 160, 255, 0.3) !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark .contact-info .contact-item:hover {
+    background: var(--primary-gradient) !important;
+    color: white !important;
+}
+
+body.dark .contact-info .contact-item i {
+    color: #97a0ff !important;
+}
+
+body.dark .contact-info .contact-item:hover i {
+    color: white !important;
+    transform: scale(1.2) rotate(10deg) !important;
+}
+
+body.dark .contact-item::before {
+    background: var(--primary-gradient) !important;
+}
+
+body.dark .contact-info a {
+    color: #e0e0e0 !important;
+}
+
+/* Side Navigation */
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+.menu-toggle:hover {
+    transform: scale(1.1);
+}
+
+.side-nav {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 280px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    transition: all 0.4s ease;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+body.dark .side-nav {
+    background: #232336 !important;
+}
+
+.side-nav.active {
+    left: 0;
+}
+
+.close-nav {
+    align-self: flex-end;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.5em;
+    margin: 0 20px 20px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+body.dark .close-nav {
+    color: #e0e0e0;
+}
+.close-nav:hover {
+    transform: rotate(90deg);
+}
+
+.side-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-nav li a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 25px;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+body.dark .side-nav li a {
+    color: #e0e0e0;
+}
+
+.side-nav li a:hover, 
+.side-nav li a.actFive {
+    background: rgba(102, 126, 234, 0.1);
+    border-left: 4px solid #667eea;
+    padding-left: 21px;
+}
+
+.side-nav li a i {
+    width: 20px;
+    text-align: center;
+}
+
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+.nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (max-width: 768px) {
+    .side-nav {
+        width: 250px;
+    }
+}
+
+/* Animated background particles */
+.bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: float 20s infinite linear;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    padding: 50px;
+    margin-bottom: 40px;
+    text-align: center;
+    box-shadow: var(--shadow-primary);
+    border: 1px solid var(--glass-border);
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideInUp 1s ease-out 0.2s forwards;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+    z-index: -1;
+}
+
+.profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin: 0 auto 30px;
+    background: var(--primary-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 70px;
+    color: white;
+    font-weight: bold;
+    position: relative;
+    transition: all 0.5s ease;
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+}
+
+.profile-img::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50%;
+    background: var(--secondary-gradient);
+    z-index: -1;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.05) rotateY(10deg);
+    box-shadow: 0 25px 50px rgba(102, 126, 234, 0.6);
+}
+
+.profile-img:hover::before {
+    opacity: 1;
+    animation: pulse-ring 2s infinite;
+}
+
+h1 {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    letter-spacing: -2px;
+    position: relative;
+}
+
+.subtitle {
+    font-size: 1.4em;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.8s forwards;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 1s forwards;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 12px 20px;
+    border-radius: 25px;
+    background: rgba(102, 126, 234, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-gradient);
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+.contact-item:hover {
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+}
+
+.contact-item:hover::before {
+    left: 0;
+}
+
+.contact-item i {
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover i {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.section {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    padding: 50px;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow-primary);
+    border: 1px solid var(--glass-border);
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease;
+}
+
+.section.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-gradient);
+    transition: all 0.8s ease;
+}
+
+.section:hover::before {
+    left: 0;
+}
+
+.section h2 {
+    font-size: 2.8em;
+    margin-bottom: 40px;
+    color: var(--text-primary);
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: var(--primary-gradient);
+    border-radius: 2px;
+    transition: width 0.8s ease;
+}
+
+.section:hover h2::after {
+    width: 80px;
+}
+
+/* Read Aloud Button */
+.read-aloud-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--secondary-gradient);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 1.1em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 10;
+    transition: background 0.3s;
+}
+.read-aloud-btn:hover {
+    background: var(--primary-gradient);
+}
+
+/* Enhanced Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.skill-category {
+    background: rgba(102, 126, 234, 0.05);
+    padding: 35px;
+    border-radius: 20px;
+    border: 1px solid rgba(102, 126, 234, 0.1);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-category::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: var(--primary-gradient);
+    transition: height 0.5s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(102, 126, 234, 0.3);
+    background: rgba(102, 126, 234, 0.1);
+}
+
+.skill-category:hover::before {
+    height: 100%;
+}
+
+.skill-category h3 {
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    font-weight: 600;
+    position: relative;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.skill-tag {
+    background: var(--primary-gradient);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+}
+
+.skill-tag::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--secondary-gradient);
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+.skill-tag:hover {
+    transform: scale(1.1) rotate(2deg);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.skill-tag:hover::before {
+    left: 0;
+}
+
+.experience-item {
+    background: rgba(118, 75, 162, 0.05);
+    padding: 40px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(118, 75, 162, 0.1);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.experience-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: var(--primary-gradient);
+    transition: width 0.5s ease;
+    z-index: -1;
+}
+
+.experience-item:hover {
+    transform: translateX(15px);
+    box-shadow: 0 20px 40px rgba(118, 75, 162, 0.2);
+    color: white;
+}
+
+.experience-item:hover::before {
+    width: 100%;
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.job-title {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.experience-item:hover .job-title {
+    color: white;
+}
+
+.company {
+    color: #764ba2;
+    font-weight: 600;
+    margin-top: 8px;
+    transition: all 0.3s ease;
+}
+
+.experience-item:hover .company {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.duration {
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: 0.95em;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.experience-item:hover .duration {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.project-card {
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--primary-gradient);
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+}
+
+.project-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-gradient);
+    opacity: 0;
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+.project-card:hover {
+    transform: translateY(-15px) rotateX(5deg);
+    border-color: #667eea;
+    box-shadow: 0 30px 60px rgba(102, 126, 234, 0.3);
+    color: white;
+}
+
+.project-card:hover::before {
+    transform: scaleX(1);
+}
+
+.project-card:hover::after {
+    opacity: 0.95;
+}
+
+.project-title {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover .project-title {
+    color: white;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.tech-tag {
+    background: rgba(118, 75, 162, 0.1);
+    color: #764ba2;
+    padding: 6px 14px;
+    border-radius: 15px;
+    font-size: 0.85em;
+    border: 1px solid rgba(118, 75, 162, 0.2);
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.project-card:hover .tech-tag {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.cta-section {
+    text-align: center;
+    background: var(--primary-gradient);
+    color: white;
+    padding: 70px 50px;
+    border-radius: 25px;
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-primary);
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: rotate 15s linear infinite;
+}
+
+.cta-section h2 {
+    color: white;
+    margin-bottom: 25px;
+    font-size: 3em;
+    font-weight: 700;
+}
+
+.cta-section h2::after {
+    background: white;
+    width: 100px;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.btn {
+    padding: 18px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid white;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: white;
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+.btn-primary {
+    background: white;
+    color: #667eea;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.btn-secondary:hover::before {
+    left: 0;
+}
+
+.btn-secondary:hover {
+    color: #667eea;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse-ring {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.3);
+        opacity: 0;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Scroll Progress Bar */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: var(--primary-gradient);
+    z-index: 1000;
+    transition: width 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    header, .section, .cta-section {
+        padding: 30px 25px;
+    }
+    h1 {
+        font-size: 2.5em;
+    }
+    .section h2 {
+        font-size: 2.2em;
+    }
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .experience-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    .profile-img {
+        width: 150px;
+        height: 150px;
+        font-size: 60px;
+    }
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    .sticky-nav ul {
+        flex-direction: column;
+        gap: 1em;
+    }
+}
+
+/* Loading Animation */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+.loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid white;
+    border-radius: 50%;
+    animation: spin .7s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+footer {
+    background: var(--dark-gradient);
+    color: #fff;
+    padding: 25px 0;
+    border-radius: 25px 25px 0 0;
+    margin-top: 40px;
+    box-shadow: var(--shadow-primary);
+    text-align: center;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.footer-social a {
+    color: #fff;
+    margin-left: 15px;
+    font-size: 1.6em;
+    transition: color 0.3s;
+    display: inline-block;
+}
+.footer-social a:hover {
+    color: #4facfe;
+}
+.footer-social a[aria-label="Instagram"]:hover {
+    color: #E4405F;
+}
+.footer-social a[aria-label="Facebook"]:hover {
+    color: #1877F3;
+}
+.footer-social a[aria-label="WhatsApp"]:hover {
+    color: #25D366;
+}
+.footer-social a[aria-label="Telegram"]:hover {
+    color: #229ED9;
+}
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Gallery responsive grid with captions */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1em;
+    margin-top: 1em;
+}
+.gallery figure {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+}
+.gallery img {
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+    display: block;
+}
+.gallery img:hover {
+    transform: scale(1.05);
+}
+.gallery figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.7em 1em;
+    background: rgba(0,0,0,0.55);
+    color: #fff;
+    font-size: 1em;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-weight: 500;
+}
+.gallery figure:hover figcaption {
+    opacity: 1;
+}
+
+/* Contact Form Validation Styles */
+#contact-form input:invalid,
+#contact-form textarea:invalid {
+    border-color: #ff6b6b;
+}
+
+#contact-form input:valid,
+#contact-form textarea:valid {
+    border-color: #51cf66;
+}
+
+.error-message {
+    color: #ff6b6b;
+    font-size: 0.8em;
+    margin-top: 0.2em;
+    display: none;
+}
+
+body.dark #contact-form input:invalid,
+body.dark #contact-form textarea:invalid {
+    border-color: #ff8787;
+}
+
+body.dark #contact-form input:valid,
+body.dark #contact-form textarea:valid {
+    border-color: #40c057;
+}
+
+/* Contact Form */
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    max-width: 500px;
+    margin: 0 auto;
+}
+#contact-form input, #contact-form textarea {
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 0.7em;
+    font-size: 1em;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+#contact-form-status {
+    margin-top: 1em;
+    text-align: center;
+    font-weight: bold;
+}
+body.dark #contact-form input, body.dark #contact-form textarea {
+    background: #22243a !important;
+    color: #e0e0e0 !important;
+    border-color: #444 !important;
+}
+#contact-form button[type="submit"] {
+    align-self: flex-end;
+}
+
+#contact-form-status {
+    margin-top: 1em;
+    text-align: center;
+    font-weight: bold;
+    padding: 0.8em;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+body.dark #contact-form-status {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Phone number validation styling */
+input:invalid {
+    border-color: #ff6b6b;
+}
+
+input:valid {
+    border-color: #51cf66;
+}
+
+.error-message {
+    color: #ff6b6b;
+    font-size: 0.8em;
+    margin-top: 0.2em;
+    display: none;
+}
+
+body.dark input:invalid {
+    border-color: #ff8787;
+}
+
+body.dark input:valid {
+    border-color: #40c057;
+}
+/* Phone Input Group Styling */
+.phone-input-group {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.country-code {
+  flex: 0 0 120px;
+  padding: 0.7em;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}
+
+.phone-input-group input {
+  flex: 1;
+}
+
+/* Dark Mode Styles */
+body.dark .country-code {
+  background: #22243a;
+  color: #e0e0e0;
+  border-color: #444;
+}
+
+/* Timeline for education/internship */
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--primary-gradient);
+}
+.timeline-item {
+    position: relative;
+    padding-bottom: 30px;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--primary-gradient);
+    border: 2px solid white;
+}
+
+/* Certificate badges */
+.cert-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #4facfe;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.7em;
+    font-weight: bold;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+  /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .blog-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-secondary);
+            transition: all 0.4s ease;
+            border: 1px solid var(--card-border);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .blog-image {
+            height: 200px;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .blog-content {
+            padding: 25px;
+        }
+
+        .blog-date {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .blog-title {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .blog-excerpt {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .blog-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--icon-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .blog-link:hover {
+            gap: 12px;
+            color: var(--text-primary);
+        }
+        .project-grid, .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+/* Print styles */
+@media print {
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    .dark-mode-toggle, .bg-animation, .progress-bar, .sticky-nav {
+        display: none !important;
+    }
+    header, .section, .cta-section, footer {
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+    .btn, .read-aloud-btn {
+        display: none !important;
+    }
+    .contact-item {
+        background: transparent !important;
+        border: none !important;
+    }
+    a {
+        text-decoration: none !important;
+        color: black !important;
+    }
+    .project-card, .skill-category, .experience-item {
+        break-inside: avoid;
+    }
+    .project-grid, .skills-grid {
+        display: block;
+    }
+    .project-card, .skill-category {
+        margin-bottom: 20px;
+    }
+    footer {
+        page-break-after: always;
+    }
+}
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+body.dark .back-to-top {
+    background: #97a0ff;
+    color: #232336;
+}
+
+
+    </style>
 </head>
 <body>
     <button class="dark-mode-toggle" aria-label="Toggle dark mode">
@@ -23,7 +1544,7 @@
                 <img src="Abhishek Resume Photo.jpg" alt="Abhishek Dangi" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
             </div>
             <h1>Abhishek Dangi</h1>
-            <p class="subtitle">Textile Technology Freshers</p>
+            <p class="subtitle">Textile Technology </p>
             <div class="contact-info">
                 <a href="mailto:221t010@ttishiwani.ac.in" class="contact-item" aria-label="Email Abhishek Dangi">
                     <i class="fas fa-envelope"></i> 221t010@ttishiwani.ac.in
@@ -34,24 +1555,47 @@
                 <a href="https://www.linkedin.com/in/abhishekdangi03" class="contact-item" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                     <i class="fab fa-linkedin"></i> LinkedIn
                 </a>
-                <div class="contact-item" aria-label="Location">
+                <a href="https://maps.app.goo.gl/dbCjzK8kQ3d7UYJj9" class="contact-item" aria-label="Location">
                     <i class="fas fa-map-marker-alt"></i> Bhiwani, Haryana
-                </div>
+                </a>
             </div>
         </header>
 
-        <section class="section" data-section="about">
+        <button class="menu-toggle" aria-label="Toggle menu">
+    <i class="fas fa-bars"></i>
+</button>
+
+<nav class="side-nav">
+    <button class="close-nav" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+    </button>
+    <ul>
+        <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+        <li><a href="#skills"><i class="fas fa-cogs"></i> Skills</a></li>
+        <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+        <!-- <li><a href="#internships"><i class="fas fa-briefcase"></i> Internships</a></li> -->
+        <li><a href="#certifications"><i class="fas fa-certificate"></i> Certifications</a></li>
+        <!-- <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li> -->
+        <li><a href="#gallery"><i class="fas fa-images"></i> Gallery</a></li>
+        <li><a href="#contact-form-section"><i class="fas fa-envelope"></i> Contact</a></li>
+    </ul>
+</nav>
+<div class="nav-overlay"></div>
+
+        <section class="section" data-section="about" id="about">
+            <button class="read-aloud-btn" aria-label="Read this section aloud"><i class="fas fa-volume-up"></i></button>
             <h2>About Me</h2>
             <p>
-                I am seeking challenging opportunities in the textile industry where I can apply my skills in textile technology and design 
-                to contribute to innovative projects and the success of the organization. With a strong foundation in textile manufacturing, 
-                design principles, and modern technology tools, I am passionate about creating sustainable and efficient solutions in the 
-                textile sector while continuously expanding my expertise in emerging technologies.
+                I am a passionate Textile Technology currently pursuing my B.Tech at The Technology Institute of Textile and Sciences, Bhiwani. With a strong foundation in textile manufacturing, design principles, and modern technology tools, I specialize in creating innovative textile solutions. My expertise spans across fiber science, fabric construction, quality control, and sustainable textile production.
+            </p>
+            <p>
+                Beyond technical skills, I'm proficient in design tools like Canva and video editing software, allowing me to bridge the gap between technical textile knowledge and creative presentation. I'm particularly interested in smart textiles and sustainable fabric development, and I'm always eager to explore how emerging technologies can revolutionize the textile industry.
             </p>
         </section>
 
-        <section class="section" data-section="skills">
-            <h2>Skills</h2>
+        <section class="section" data-section="skills" id="skills">
+            <button class="read-aloud-btn" aria-label="Read this section aloud"><i class="fas fa-volume-up"></i></button>
+            <h2>Technical Expertise</h2>
             <div class="skills-grid">
                 <div class="skill-category">
                     <h3><i class="fas fa-cogs"></i> Textile Technology</h3>
@@ -62,6 +1606,8 @@
                         <span class="skill-tag">Fiber Science</span>
                         <span class="skill-tag">Weaving Technology</span>
                         <span class="skill-tag">Textile Testing</span>
+                        <span class="skill-tag">Wool Processing</span>
+                        <span class="skill-tag">Technical Textiles</span>
                     </div>
                 </div>
                 <div class="skill-category">
@@ -73,6 +1619,7 @@
                         <span class="skill-tag">Kine Master</span>
                         <span class="skill-tag">Youcut</span>
                         <span class="skill-tag">Movavi</span>
+                        <span class="skill-tag">UI/UX Design</span>
                     </div>
                 </div>
                 <div class="skill-category">
@@ -81,49 +1628,118 @@
                         <span class="skill-tag">Microsoft Copilot</span>
                         <span class="skill-tag">Claude AI</span>
                         <span class="skill-tag">C Language</span>
-                        <span class="skill-tag">UI/UX Design</span>
-                        <span class="skill-tag">Wool Processing</span>
-                        <span class="skill-tag">Textile Production</span>
+                        <span class="skill-tag">Data Analysis</span>
+                        <span class="skill-tag">Technical Writing</span>
+                        <span class="skill-tag">Project Management</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section" data-section="education">
+        <section class="section" data-section="education" id="education">
+            <button class="read-aloud-btn" aria-label="Read this section aloud"><i class="fas fa-volume-up"></i></button>
             <h2>Education</h2>
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="job-title">Bachelor of Technology (B.Tech) - Textile Technology</div>
-                        <div class="company">The Technology Institute of Textile and Sciences, Bhiwani, Haryana</div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <div class="job-title">Bachelor of Technology (B.Tech) - Textile Technology</div>
+                                <div class="company">The Technological Institute of Textile and Sciences, Bhiwani, Haryana</div>
+                            </div>
+                            <div class="duration">2022 - Present</div>
+                        </div>
+                        <p>Currently pursuing Bachelor's degree in Textile Technology with focus on textile manufacturing, design, and quality control. Gaining comprehensive knowledge in fiber science, fabric construction, and modern textile production techniques.</p>
+                        <p><strong>Key Courses:</strong> Textile Chemistry, Yarn Manufacturing, Fabric Structure, Textile Testing, Technical Textiles, Quality Management</p>
                     </div>
-                    <div class="duration">2022 - Present</div>
                 </div>
-                <p>Currently pursuing Bachelor's degree in Textile Technology with focus on textile manufacturing, design, and quality control. Gaining comprehensive knowledge in fiber science, fabric construction, and modern textile production techniques.</p>
-            </div>
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="job-title">Higher Secondary Education (Grade 12)</div>
-                        <div class="company">Bhiwani Public School, Bhiwani, Haryana</div>
+                <div class="timeline-item">
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <div class="job-title">Higher Secondary Education (Grade 12)</div>
+                                <div class="company">Bhiwani Public School, Bhiwani, Haryana</div>
+                            </div>
+                            <div class="duration">Completed 2022</div>
+                        </div>
+                        <p>Completed higher secondary education with strong academic performance, building foundation for technical education in textile industry.</p>
                     </div>
-                    <div class="duration">Completed 2022</div>
                 </div>
-                <p>Completed higher secondary education with strong academic performance, building foundation for technical education in textile industry.</p>
-            </div>
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="job-title">Secondary Education (Grade 10)</div>
-                        <div class="company">Happy High School, Bhiwani, Haryana</div>
+                <div class="timeline-item">
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <div class="job-title">Secondary Education (Grade 10)</div>
+                                <div class="company">Happy High School, Bhiwani, Haryana</div>
+                            </div>
+                            <div class="duration">Completed 2020</div>
+                        </div>
+                        <p>Successfully completed secondary education with excellent grades, demonstrating strong academic foundation and commitment to learning.</p>
                     </div>
-                    <div class="duration">Completed 2020</div>
                 </div>
-                <p>Successfully completed secondary education with excellent grades, demonstrating strong academic foundation and commitment to learning.</p>
             </div>
         </section>
 
-        <section class="section" data-section="certifications">
+        <!-- <section class="section" data-section="internships" id="internships">
+            <button class="read-aloud-btn" aria-label="Read this section aloud"><i class="fas fa-volume-up"></i></button>
+            <h2>Internship Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <div class="job-title">Textile Process Intern</div>
+                                <div class="company">Vardhman Textiles Ltd.</div>
+                            </div>
+                            <div class="duration">May - July 2024</div>
+                        </div>
+                        <p>Worked as a Textile Process Intern, assisting in optimizing spinning and weaving processes.</p>
+                        <ul>
+                            <li>Monitored production lines for quality and efficiency.</li>
+                            <li>Assisted in implementing new quality control protocols.</li>
+                            <li>Prepared weekly analysis reports for supervisors.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <div class="job-title">Fabric Design Intern</div>
+                                <div class="company">Raymond Ltd.</div>
+                            </div>
+                            <div class="duration">Jan - Mar 2024</div>
+                        </div>
+                        <p>Interned in the Fabric Design department, collaborating on new sustainable textile blends.</p>
+                        <ul>
+                            <li>Worked with the R&D team to develop eco-friendly fabric samples.</li>
+                            <li>Researched global trends in sustainable fashion.</li>
+                            <li>Presented findings to senior designers.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <div class="job-title">Quality Control Intern</div>
+                                <div class="company">Arvind Mills</div>
+                            </div>
+                            <div class="duration">June - Aug 2023</div>
+                        </div>
+                        <p>Conducted fabric and yarn testing as part of the quality control team.</p>
+                        <ul>
+                            <li>Operated textile testing instruments (Tensile, GSM, etc.).</li>
+                            <li>Documented results and suggested process improvements.</li>
+                            <li>Ensured compliance with ISO standards.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <section class="section" data-section="certifications" id="certifications">
+            <button class="read-aloud-btn" aria-label="Read this section aloud"><i class="fas fa-volume-up"></i></button>
             <h2>Certifications & Courses</h2>
             <div class="certifications-grid">
                 <div>
@@ -131,23 +1747,25 @@
                     <div class="project-grid">
                         <div class="project-card">
                             <div class="project-title"><i class="fas fa-certificate"></i> Wool Appreciation Course</div>
-                            <p>Comprehensive course on wool processing, quality assessment, and applications in textile industry.</p>
+                            <p>Comprehensive course on wool processing, quality assessment, and applications in textile industry from the world's leading wool authority.</p>
                             <div class="project-tech">
                                 <span class="tech-tag">The Woolmark Company, Australia</span>
                                 <span class="tech-tag">Sep 2024</span>
                             </div>
+                            <div class="cert-badge">Verified</div>
                         </div>
                         <div class="project-card">
-                            <div class="project-title"><i class="fas fa-award"></i> Woven Textile Design and Production</div>
-                            <p>Advanced training in woven textile design principles and production techniques.</p>
+                            <div  class="project-title"><i class="fas fa-award"></i> Woven Textile Design and Production</div>
+                            <p>Advanced training in woven textile design principles and production techniques with focus on industrial applications.</p>
                             <div class="project-tech">
                                 <span class="tech-tag">The Woolmark Company, Australia</span>
                                 <span class="tech-tag">May 2024</span>
                             </div>
+                            <div class="cert-badge">Verified</div>
                         </div>
                         <div class="project-card">
                             <div class="project-title"><i class="fas fa-microscope"></i> Wool Fiber Science</div>
-                            <p>Specialized course focusing on wool fiber properties, processing, and quality control.</p>
+                            <p>Specialized course focusing on wool fiber properties, processing techniques, and quality control measures.</p>
                             <div class="project-tech">
                                 <span class="tech-tag">The Woolmark Company, Australia</span>
                                 <span class="tech-tag">2024</span>
@@ -155,7 +1773,7 @@
                         </div>
                         <div class="project-card">
                             <div class="project-title"><i class="fas fa-clipboard-check"></i> Textile Quality Management</div>
-                            <p>Training in quality management systems and practices in the textile industry.</p>
+                            <p>Training in quality management systems and practices in the textile industry, including ISO standards.</p>
                             <div class="project-tech">
                                 <span class="tech-tag">Great Learning Academy</span>
                                 <span class="tech-tag">2024</span>
@@ -163,9 +1781,9 @@
                         </div>
                         <div class="project-card">
                             <div class="project-title"><i class="fas fa-briefcase"></i> Textile Industry Overview</div>
-                            <p>Introduction to the textile industry, covering key processes, technologies, and market dynamics.</p>
+                            <p>Introduction to the textile industry, covering key processes, technologies, and global market dynamics.</p>
                             <div class="project-tech">
-                                <span class="tech-tag">Great Learning Academy</span>
+                                <span class="tech-tag">The Technological Institute of Textile and Sciences, Bhiwani, Haryana</span>
                                 <span class="tech-tag">2024</span>
                             </div>
                         </div>
@@ -176,7 +1794,7 @@
                     <div class="project-grid">
                         <div class="project-card">
                             <div class="project-title"><i class="fas fa-paint-brush"></i> UI/UX for Beginners</div>
-                            <p>Foundation course in user interface and user experience design principles.</p>
+                            <p>Foundation course in user interface and user experience design principles for digital products.</p>
                             <div class="project-tech">
                                 <span class="tech-tag">Great Learning Academy</span>
                                 <span class="tech-tag">2024</span>
@@ -184,20 +1802,20 @@
                         </div>
                         <div class="project-card">
                             <div class="project-title"><i class="fab fa-microsoft"></i> Microsoft Copilot</div>
-                            <p>Training in Microsoft's AI-powered productivity tools for enhanced workflow efficiency.</p>
+                            <p>Training in Microsoft's AI-powered productivity tools for enhanced workflow efficiency and automation.</p>
                             <div class="project-tech">
                                 <span class="tech-tag">Hardik Raja</span>
                                 <span class="tech-tag">Mar 2024</span>
                             </div>
                         </div>
-                        <div class="project-card">
+                        <!-- <div class="project-card">
                             <div class="project-title"><i class="fas fa-image"></i> Graphics Design</div>
-                            <p>Comprehensive training in graphics design principles and digital design tools.</p>
+                            <p>Comprehensive training in graphics design principles and digital design tools for professional presentations.</p>
                             <div class="project-tech">
                                 <span class="tech-tag">Great Learning Academy</span>
                                 <span class="tech-tag">2024</span>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="project-card">
                             <div class="project-title"><i class="fas fa-robot"></i> Claude AI Certification</div>
                             <p>Certification in AI tools and applications for modern textile and design workflows.</p>
@@ -208,9 +1826,9 @@
                         </div>
                         <div class="project-card">
                             <div class="project-title"><i class="fas fa-code"></i> C Language Programming</div>
-                            <p>Foundation programming course covering C language fundamentals and applications.</p>
+                            <p>Foundation programming course covering C language fundamentals and applications in technical computing.</p>
                             <div class="project-tech">
-                                <span class="tech-tag">The Technology Institute of Textile and Sciences</span>
+                                <span class="tech-tag">The Technological Institute of Textile and Sciences</span>
                                 <span class="tech-tag">Bhiwani</span>
                             </div>
                         </div>
@@ -219,7 +1837,8 @@
             </div>
         </section>
 
-        <section class="section" data-section="training">
+        <section class="section" data-section="training" id="training">
+            <button class="read-aloud-btn" aria-label="Read this section aloud"><i class="fas fa-volume-up"></i></button>
             <h2>Training & Experience</h2>
             <div class="experience-item">
                 <div class="experience-header">
@@ -229,17 +1848,75 @@
                     </div>
                     <div class="duration">3 Days Training - 2024</div>
                 </div>
-                <p>Intensive hands-on training program focused on manufacturing processes and quality testing procedures for technical textiles. Gained practical experience in textile testing methodologies and quality assurance protocols. <em>Certificate No: TSC/ITT/2024/002</em></p>
+                <p>Intensive hands-on training program focused on manufacturing processes and quality testing procedures for technical textiles. Gained practical experience in:</p>
+                <ul style="margin-top: 10px; padding-left: 20px;">
+                    <li>Textile testing methodologies and equipment operation</li>
+                    <li>Quality assurance protocols for industrial textiles</li>
+                    <li>Non-destructive testing techniques</li>
+                    <li>Performance evaluation of technical fabrics</li>
+                </ul>
+                <p style="margin-top: 10px;"><em>Certificate No: TSC/ITT/2024/002</em></p>
             </div>
         </section>
 
-        <section class="section" data-section="projects">
-            <h2>Projects</h2>
+        <section class="section" data-section="blog">
+            <h2>Textile Innovations Blog</h2>
+            <p style="font-size: 1.15em; line-height: 1.8; color: var(--text-secondary); margin-bottom: 30px;">
+                Sharing insights and thoughts on the latest trends, technologies, and innovations in the textile industry.
+            </p>
+            
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-image" style="background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date"><i class="far fa-calendar"></i> May 15, 2024</div>
+                        <h3 class="blog-title">Sustainable Textiles: The Future of Fashion</h3>
+                        <p class="blog-excerpt">Exploring innovative materials and processes that are reducing the environmental impact of the textile industry while maintaining quality and aesthetics.</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-image" style="background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date"><i class="far fa-calendar"></i> April 28, 2024</div>
+                        <h3 class="blog-title">Smart Textiles: Integrating Technology with Fabric</h3>
+                        <p class="blog-excerpt">How IoT sensors, conductive threads, and responsive materials are creating fabrics that can monitor health, change properties, and interact with devices.</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-image" style="background: linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%);">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date"><i class="far fa-calendar"></i> April 10, 2024</div>
+                        <h3 class="blog-title">AI in Textile Manufacturing: Revolutionizing Production</h3>
+                        <p class="blog-excerpt">Examining how artificial intelligence is optimizing textile production processes, improving quality control, and predicting market trends.</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- <section class="section" data-section="projects" id="projects">
+            <button class="read-aloud-btn" aria-label="Read this section aloud"><i class="fas fa-volume-up"></i></button>
+            <h2>Academic & Personal Projects</h2>
             <div class="project-grid">
                 <div class="project-card">
                     <div class="project-title"><i class="fas fa-tasks"></i> Smart Textile Management System</div>
-                    <p>Developed a web-based system for managing textile production processes and inventory.<br>
-                    <strong>Highlights:</strong> Implemented real-time tracking, improved efficiency by 20%.</p>
+                    <p>Developed a web-based system for managing textile production processes and inventory with real-time tracking capabilities.</p>
+                    <p><strong>Key Features:</strong></p>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Real-time production monitoring</li>
+                        <li>Automated inventory tracking</li>
+                        <li>Quality control integration</li>
+                    </ul>
                     <div class="project-tech">
                         <span class="tech-tag">Web Development</span>
                         <span class="tech-tag">Database Management</span>
@@ -248,8 +1925,13 @@
                 </div>
                 <div class="project-card">
                     <div class="project-title"><i class="fas fa-tshirt"></i> Smart Textile Innovations</div>
-                    <p>Developed a prototype for smart textiles integrating IoT sensors for real-time monitoring.<br>
-                    <strong>Challenge:</strong> Ensured durability and sensor accuracy.</p>
+                    <p>Developed a prototype for smart textiles integrating IoT sensors for real-time monitoring of environmental conditions.</p>
+                    <p><strong>Technical Challenges:</strong></p>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Ensured fabric durability with embedded electronics</li>
+                        <li>Maintained sensor accuracy after multiple washes</li>
+                        <li>Developed energy-efficient power solution</li>
+                    </ul>
                     <div class="project-tech">
                         <span class="tech-tag">IoT</span>
                         <span class="tech-tag">Textile Design</span>
@@ -258,8 +1940,13 @@
                 </div>
                 <div class="project-card">
                     <div class="project-title"><i class="fas fa-cogs"></i> Automated Textile Testing System</div>
-                    <p>Designed an automated system for testing textile properties using machine learning algorithms.<br>
-                    <strong>Outcome:</strong> Reduced manual labor and improved testing accuracy.</p>
+                    <p>Designed an automated system for testing textile properties using machine learning algorithms to classify fabric quality.</p>
+                    <p><strong>Outcomes:</strong></p>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Reduced manual labor by 40%</li>
+                        <li>Improved testing accuracy to 95%</li>
+                        <li>Reduced testing time by 30%</li>
+                    </ul>
                     <div class="project-tech">
                         <span class="tech-tag">Machine Learning</span>
                         <span class="tech-tag">Automation</span>
@@ -268,7 +1955,13 @@
                 </div>
                 <div class="project-card">
                     <div class="project-title"><i class="fas fa-leaf"></i> Sustainable Fabric Development</div>
-                    <p>Created eco-friendly fabrics using recycled materials and sustainable production methods.</p>
+                    <p>Created eco-friendly fabrics using recycled materials and sustainable production methods with reduced environmental impact.</p>
+                    <p><strong>Innovations:</strong></p>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Utilized post-consumer textile waste</li>
+                        <li>Developed water-saving dyeing process</li>
+                        <li>Achieved comparable durability to conventional fabrics</li>
+                    </ul>
                     <div class="project-tech">
                         <span class="tech-tag">Sustainability</span>
                         <span class="tech-tag">Recycling</span>
@@ -277,7 +1970,13 @@
                 </div>
                 <div class="project-card">
                     <div class="project-title"><i class="fas fa-chart-bar"></i> Textile Market Analysis Tool</div>
-                    <p>Developed a tool for analyzing textile market trends and consumer preferences using data analytics.</p>
+                    <p>Developed a tool for analyzing textile market trends and consumer preferences using data analytics and visualization.</p>
+                    <p><strong>Capabilities:</strong></p>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Trend forecasting</li>
+                        <li>Consumer preference analysis</li>
+                        <li>Material cost optimization</li>
+                    </ul>
                     <div class="project-tech">
                         <span class="tech-tag">Data Analytics</span>
                         <span class="tech-tag">Market Research</span>
@@ -285,63 +1984,98 @@
                     </div>
                 </div>
             </div>
-        </section>
+            <div class="cta-buttons" style="margin-top:2em;">
+                <a href="Abhishek-Dangi-Resume.pdf" class="btn btn-primary" aria-label="Download Resume" download>
+                    <i class="fas fa-download"></i> Download Resume
+                </a>
+            </div>
+        </section> -->
 
         <section class="section" id="gallery">
+            <button class="read-aloud-btn" aria-label="Read this section aloud"><i class="fas fa-volume-up"></i></button>
             <h2>Image Gallery</h2>
             <div class="gallery">
-                <img src="" alt="Project sample 1" loading="lazy">
-                <img src="gallery2.jpg" alt="Project sample 2" loading="lazy">
-                <!-- Add more images as needed -->
+                <figure>
+                    <img src="fbric gsm.png" alt="GSM in Fabric" loading="lazy">
+                    <figcaption>GSM in Fabric</figcaption>
+                </figure>
+                <figure>
+
+                    <img src="Screenshot 2025-06-09 113647.png" alt="TPI Guide Based on Yarn Use" loading="lazy">
+                    <figcaption>TPI Guide Based on Yarn Use</figcaption>
+                </figure>
+                <figure>
+                    <a href="https://www.linkedin.com/posts/abhishekdangi03_certificate-of-woven-textile-design-and-activity-7201265777889402881-5De8?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEI5wHYBEY3_ZLFMZMxo6EOQqswyCwp9Uos">
+                    <img src="qrcode_www.linkedin.com.png" alt="Woven Textile Design and Production" loading="lazy">
+                    </a>
+                    <figcaption>Woven Textile Design and Production Course</figcaption>
+                </figure>
+                <figure>
+                    <img src="Weave design.png" alt="Weave Design" loading="lazy">
+                    <figcaption>Weave Designs</figcaption>
+                </figure>
             </div>
         </section>
 
-        <section class="section" data-section="languages">
+        <section class="section" data-section="languages" id="languages">
+            <button class="read-aloud-btn" aria-label="Read this section aloud"><i class="fas fa-volume-up"></i></button>
             <h2>Languages & Interests</h2>
             <div class="skills-grid">
                 <div class="skill-category">
                     <h3><i class="fas fa-language"></i> Languages</h3>
                     <div class="skills-list">
                         <span class="skill-tag">Hindi (Native)</span>
-                        <span class="skill-tag">English (Proficient)</span>
+                        <span class="skill-tag">English (Professional)</span>
+                        <span class="skill-tag">Haryanvi (Conversational)</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3><i class="fas fa-heart"></i> Interests</h3>
                     <div class="skills-list">
+                        <span class="skill-tag">Textile Innovation</span>
+                        <span class="skill-tag">Sustainable Fashion</span>
                         <span class="skill-tag">Cycling</span>
                         <span class="skill-tag">Cricket</span>
                         <span class="skill-tag">Video Editing</span>
                         <span class="skill-tag">Design Innovation</span>
                     </div>
                 </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-users"></i> Activities</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">Textile Research</span>
+                        <span class="skill-tag">Technical Workshops</span>
+                        <span class="skill-tag">Industry Seminars</span>
+                        <span class="skill-tag">College Events</span>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <div class="cta-section">
-            <h2>Let's Work Together</h2>
+        <!-- <div class="cta-section">
+            <h2>Let's Collaborate</h2>
             <p>
-                I'm always interested in new opportunities and exciting projects. 
-                Let's connect and discuss how we can create something amazing together!
+                I'm actively seeking opportunities in textile technology, research, and innovation. Whether you're looking for a passionate textile technologist, have an interesting project, or just want to connect - I'd love to hear from you!
             </p>
             <div class="cta-buttons">
-                <a href="https://abhishekportfolio.odoo.com/contactus" class="btn btn-primary" aria-label="Send Email to Abhishek Dangi">
-                    <i class="fas fa-envelope"></i> Get In Touch
+                <a href="mailto:221t010@ttishiwani.ac.in" class="btn btn-primary" aria-label="Email Abhishek Dangi">
+                    <i class="fas fa-envelope"></i> Email Me
                 </a>
-                <a href="https://abhishekportfolioo.github.io/Resume/" class="btn btn-secondary" aria-label="View Resume of Abhishek Dangi">
-                    <i class="fas fa-download"></i> View Resume
+                <a href="Abhishek-Dangi-Resume.pdf" class="btn btn-secondary" aria-label="Download Resume" download>
+                    <i class="fas fa-download"></i> Download Resume
                 </a>
             </div>
-        </div>
+        </div> -->
 
-        <section class="section" data-section="contact">
-            <h2>Contact Me</h2>
+        <section class="section" data-section="contact" id="contact">
+            <button class="read-aloud-btn" aria-label="Read this section aloud"><i class="fas fa-volume-up"></i></button>
+            <h2>Get In Touch</h2>
             <p>
-                I'm always open to new opportunities and collaborations. Feel free to reach out via email or connect with me on LinkedIn.
+                I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision. Feel free to reach out through any of these channels:
             </p>
             <div class="contact-info">
-                <a href="mailto:22tt010@titsbhiwa.ac.in" class="contact-item" aria-label="Email Abhishek Dangi">
-                    <i class="fas fa-envelope"></i> 22tt010@titsbhiwa.ac.in
+                <a href="mailto:221t010@ttishiwani.ac.in" class="contact-item" aria-label="Email Abhishek Dangi">
+                    <i class="fas fa-envelope"></i> 221t010@ttishiwani.ac.in
                 </a>
                 <a href="tel:+919460448983" class="contact-item" aria-label="Call Abhishek Dangi">
                     <i class="fas fa-phone"></i> +91 9460448983
@@ -349,20 +2083,53 @@
                 <a href="https://www.linkedin.com/in/abhishekdangi03" class="contact-item" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                     <i class="fab fa-linkedin"></i> LinkedIn
                 </a>
-                <div class="contact-item" aria-label="Location">
-                    <i class="fas fa-map-marker-alt"></i> Bhiwani, Haryana
-                </div>
-            </div>
-            <div class="cta-buttons">
-                <a href="mailto:22tt010@titsbhiwa.ac.in" class="btn btn-primary" aria-label="Email Me">
-                    <i class="fas fa-envelope"></i> Email Me
+                <a href="https://wa.me/919460448983" class="contact-item" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
-                <a href="Abhishek Dangi - Resume.pdf" class="btn btn-secondary" aria-label="Download Resume">
-                    <i class="fas fa-download"></i> Download Resume
+            </div>
+            <div class="cta-buttons" style="margin-top: 30px;">
+                <a href="https://www.linkedin.com/in/abhishekdangi03" class="btn btn-primary" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn">
+                    <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                </a>
+                <a href="https://abhishekportfolioo.github.io/Resume/" class="btn btn-secondary" aria-label="View Resume" download>
+                    <i class="fas fa-view"></i>View Resume
                 </a>
             </div>
         </section>
+
+        <section class="section" id="contact-form-section">
+            <button class="read-aloud-btn" aria-label="Read this section aloud"><i class="fas fa-volume-up"></i></button>
+            <h2>Contact Me</h2>
+            <form id="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <div class="phone-input-group">
+  <select name="country_code" class="country-code" required>
+    <option value="" disabled selected>Code</option>
+    <option value="+91" data-country="IN">+91 (India)</option>
+    <option value="+1" data-country="US">+1 (USA)</option>
+    <option value="+44" data-country="GB">+44 (UK)</option>
+    <!-- Add more country codes as needed -->
+  </select>
+  <input 
+    type="tel" 
+    name="phone" 
+    placeholder="Phone Number" 
+    pattern="[0-9]{10}" 
+    title="Please enter exactly 10 digits" 
+    required
+  >
+</div>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="Company" placeholder="Company" required>
+                <textarea name="message" rows="5" placeholder="Your Message" required minlength="20"></textarea>
+                <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button>
+            </form>
+            <div id="contact-form-status"></div>
+        </section>
     </div>
+    <button class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+</button>
 
     <footer>
         <div class="container footer-content">
@@ -378,6 +2145,476 @@
             </div>
         </div>
     </footer>
-    <script src="script.js"></script>
+    
+    <script>
+// Loading animation (shorter duration)
+window.addEventListener('load', function() {
+    const loadingOverlay = document.querySelector('.loading-overlay');
+    setTimeout(() => {
+        loadingOverlay.style.opacity = '0';
+        setTimeout(() => {
+            loadingOverlay.style.display = 'none';
+        }, 400);
+    }, 700);
+});
+
+// Animated background particles (desktop only, fewer particles for performance)
+function createParticles() {
+    const bgAnimation = document.querySelector('.bg-animation');
+    if (!bgAnimation) return;
+    if (window.innerWidth < 768) return;
+    for (let i = 0; i < 200; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 5 + 's';
+        particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+        bgAnimation.appendChild(particle);
+    }
+}
+
+// Scroll progress bar
+function updateProgressBar() {
+    const progressBar = document.querySelector('.progress-bar');
+    if (!progressBar) return;
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrollProgress = (scrollTop / scrollHeight) * 100;
+    progressBar.style.width = scrollProgress + '%';
+}
+
+// Enhanced intersection observer for animations
+function setupScrollAnimations() {
+    const sections = document.querySelectorAll('.section');
+    if (!('IntersectionObserver' in window)) {
+        sections.forEach(section => section.classList.add('animate'));
+        return;
+    }
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                // Animate skill tags with stagger effect
+                const skillTags = entry.target.querySelectorAll('.skill-tag');
+                skillTags.forEach((tag, index) => {
+                    setTimeout(() => {
+                        tag.style.animation = `fadeInUp 0.6s ease-out forwards`;
+                    }, index * 100);
+                });
+                // Animate project cards with stagger effect
+                const projectCards = entry.target.querySelectorAll('.project-card');
+                projectCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.animation = `slideInUp 3s ease-out forwards`;
+                    }, index * 200);
+                });
+            }
+        });
+    }, observerOptions);
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+}
+
+// Project card and skill-category hover effects
+function setupHoverEffects() {
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+        });
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+        });
+    });
+    document.querySelectorAll('.skill-category').forEach(category => {
+        category.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const moveX = (x - rect.width / 2) / 20;
+            const moveY = (y - rect.height / 2) / 20;
+            this.style.transform = `translate(${moveX}px, ${moveY}px) translateY(-10px) scale(1.02)`;
+        });
+        category.addEventListener('mouseleave', function() {
+            this.style.transform = 'translate(0, 0) translateY(0) scale(1)';
+        });
+    });
+}
+
+// Smooth scrolling for internal links (if needed for menu anchors)
+function setupSmoothScrolling() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+}
+
+// Typewriter effect for subtitle
+function typewriterEffect() {
+    const subtitle = document.querySelector('.subtitle');
+    if (!subtitle) return;
+    const text = "Textile Technology ";
+    subtitle.textContent = '';
+    subtitle.style.opacity = '1';
+    let i = 0;
+    function typeChar() {
+        if (i < text.length) {
+            subtitle.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeChar, 50);
+        }
+    }
+    setTimeout(typeChar, 500);
+}
+
+// Set current year in footer
+function setFooterYear() {
+    const yearSpan = document.getElementById('year');
+    if (yearSpan)
+        yearSpan.textContent = new Date().getFullYear();
+}
+
+// Dark mode toggle
+// Persistent Dark Mode Toggle
+function setupDarkModeToggle() {
+    const btn = document.querySelector('.dark-mode-toggle');
+    const icon = btn.querySelector('i');
+    
+    // Check for saved user preference or use system preference
+    const savedMode = localStorage.getItem('darkMode');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    // Set initial mode
+    if (savedMode === 'dark' || (!savedMode && systemPrefersDark)) {
+        document.body.classList.add('dark');
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    }
+    
+    // Toggle function
+    btn.addEventListener('click', function() {
+        document.body.classList.toggle('dark');
+        const isDark = document.body.classList.contains('dark');
+        
+        // Update icon
+        if (isDark) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+            localStorage.setItem('darkMode', 'dark');
+        } else {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+            localStorage.setItem('darkMode', 'light');
+        }
+    });
+    
+    // Watch for system preference changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        if (!localStorage.getItem('darkMode')) { // Only if user hasn't set preference
+            if (e.matches) {
+                document.body.classList.add('dark');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                document.body.classList.remove('dark');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
+    });
+}
+
+// Print functionality
+function setupPrintButton() {
+    const printBtn = document.createElement('button');
+    printBtn.innerHTML = '<i class="fas fa-print"></i>';
+    printBtn.style.position = 'fixed';
+    printBtn.style.bottom = '20px';
+    printBtn.style.left = '10px';
+    printBtn.style.zIndex = '1000';
+    printBtn.style.width = '48px';
+    printBtn.style.height = '48px';
+    printBtn.style.borderRadius = '50%';
+    printBtn.style.background = 'var(--primary-gradient)';
+    printBtn.style.color = 'white';
+    printBtn.style.border = 'none';
+    printBtn.style.cursor = 'pointer';
+    printBtn.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
+    printBtn.addEventListener('click', () => window.print());
+    document.body.appendChild(printBtn);
+}
+
+// Read Aloud Feature for all sections
+function setupReadAloud() {
+    document.querySelectorAll('.read-aloud-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const section = btn.closest('.section') || btn.closest('div.cta-section');
+            if (!section) return;
+            let text = section.innerText || section.textContent;
+            if (!text) return;
+            if (window.speechSynthesis.speaking) window.speechSynthesis.cancel();
+            const utter = new SpeechSynthesisUtterance(text);
+            utter.rate = 1;
+            utter.pitch = 1;
+            utter.lang = 'en-US';
+            window.speechSynthesis.speak(utter);
+        });
+    });
+}
+
+// Enhanced Contact Form with Validation
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-form');
+    if (form) {
+        
+        const messageInput = form.querySelector('textarea[name="message"]');
+        
+        // Create error message element
+        const errorMessage = document.createElement('div');
+        errorMessage.className = 'error-message';
+        errorMessage.textContent = 'Message must be at least 20 characters long';
+        messageInput.parentNode.insertBefore(errorMessage, messageInput.nextSibling);
+        
+        // Real-time validation
+        messageInput.addEventListener('input', function() {
+            if (this.value.length < 21 && this.value.length > 0) {
+                errorMessage.style.display = 'block';
+            } else {
+                errorMessage.style.display = 'none';
+            }
+        });
+        
+        form.addEventListener('submit', function(e) {
+
+            
+            e.preventDefault();
+            const status = document.getElementById('contact-form-status');
+            
+            // Manual validation check
+            if (messageInput.value.length < 21) {
+                errorMessage.style.display = 'block';
+                status.textContent = 'Please write a message with at least 20 characters';
+                status.style.color = '#ff6b6b';
+                return;
+            }
+            
+            
+            status.textContent = 'Sending...';
+            status.style.color = 'inherit';
+            
+            fetch('https://formspree.io/f/mgvyobdv', {
+                method: 'POST',
+                headers: { 'Accept': 'application/json' },
+                body: new FormData(form)
+            })
+            .then(response => {
+                if (response.ok) {
+                    status.textContent = 'Thank you! Your message has been sent.';
+                    status.style.color = '#51cf66';
+                    form.reset();
+                } else {
+                    status.textContent = 'Oops! There was a problem sending your message.';
+                    status.style.color = '#ff6b6b';
+                }
+            })
+            .catch(() => {
+                status.textContent = 'Oops! There was a problem sending your message.';
+                status.style.color = '#ff6b6b';
+            });
+        });
+    }
+});
+
+// Enhanced Phone Validation with Country Code
+function setupPhoneValidation() {
+  const phoneGroup = document.querySelector('.phone-input-group');
+  if (!phoneGroup) return;
+
+  const countryCode = phoneGroup.querySelector('.country-code');
+  const phoneInput = phoneGroup.querySelector('input[name="phone"]');
+  
+  // Create error message element
+  const errorMessage = document.createElement('div');
+  errorMessage.className = 'error-message';
+  phoneGroup.parentNode.insertBefore(errorMessage, phoneGroup.nextSibling);
+
+  // Format and validate input
+  phoneInput.addEventListener('input', function() {
+    // Remove all non-digit characters
+    this.value = this.value.replace(/\D/g, '');
+    
+    // Validate length (10 digits for most countries)
+    const maxLength = countryCode.value === '+1' ? 10 : 10; // Adjust per country
+    if (this.value.length > maxLength) {
+      this.value = this.value.slice(0, maxLength);
+    }
+    
+    updateValidationState();
+  });
+
+  countryCode.addEventListener('change', updateValidationState);
+
+  function updateValidationState() {
+    const isValid = phoneInput.value.length === 10 && countryCode.value;
+    phoneInput.setCustomValidity(isValid ? '' : 'Invalid phone number');
+    errorMessage.style.display = isValid ? 'none' : 'block';
+    
+    if (!countryCode.value) {
+      errorMessage.textContent = 'Please select country code';
+    } else if (phoneInput.value.length !== 10) {
+      errorMessage.textContent = 'Phone number must be 10 digits';
+    } else {
+      errorMessage.textContent = '';
+    }
+  }
+
+  // Form submission validation
+  const form = phoneGroup.closest('form');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      updateValidationState();
+      if (!phoneInput.checkValidity() || !countryCode.value) {
+        e.preventDefault();
+        errorMessage.style.display = 'block';
+        if (!countryCode.value) countryCode.focus();
+        else phoneInput.focus();
+      }
+    });
+  }
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+  setupPhoneValidation();
+});
+
+// Add to your DOMContentLoaded:
+document.addEventListener('DOMContentLoaded', function() {
+    setupPhoneValidation();
+    // ... other initialization code
+});
+
+
+// Side navigation functionality
+function setupSideNav() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const closeNav = document.querySelector('.close-nav');
+    const sideNav = document.querySelector('.side-nav');
+    const navOverlay = document.querySelector('.nav-overlay');
+    
+    if (menuToggle && sideNav) {
+        menuToggle.addEventListener('click', () => {
+            sideNav.classList.add('active');
+            navOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeNav.addEventListener('click', () => {
+            sideNav.classList.remove('active');
+            navOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        navOverlay.addEventListener('click', () => {
+            sideNav.classList.remove('active');
+            navOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // Close nav when clicking on a link (for single page navigation)
+        document.querySelectorAll('.side-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                sideNav.classList.remove('active');
+                navOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    }
+}
+
+// Highlight current section in side nav
+window.addEventListener('scroll', function() {
+    const sections = document.querySelectorAll('.section');
+    let scrollPos = window.scrollY + 120;
+    document.querySelectorAll('.side-nav a').forEach(link => link.classList.remove('active'));
+    sections.forEach(sec => {
+        if (scrollPos > sec.offsetTop && scrollPos < sec.offsetTop + sec.offsetHeight) {
+            const id = sec.getAttribute('data-section') || sec.id;
+            if (id)
+                document.querySelector('.side-nav a[href="#' + id + '"]')?.classList.add('active');
+        }
+    });
+});
+
+// Add this to your DOMContentLoaded event listener
+document.addEventListener('DOMContentLoaded', function() {
+    // ... existing code ...
+    setupSideNav();
+    // ... rest of your code ...
+});
+
+// Main page init
+document.addEventListener('DOMContentLoaded', function() {
+    setFooterYear();
+    createParticles();
+    setupScrollAnimations();
+    setupHoverEffects();
+    setupSmoothScrolling();
+    setupDarkModeToggle();
+    setupPrintButton();
+    setupReadAloud();
+    typewriterEffect();
+});
+
+window.addEventListener('scroll', updateProgressBar);
+    
+    
+    // Back to Top Button
+function setupBackToTop() {
+    const backToTopBtn = document.querySelector('.back-to-top');
+    
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    });
+    
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// Add to your DOMContentLoaded:
+document.addEventListener('DOMContentLoaded', function() {
+    setupBackToTop();
+    // ... other initialization code
+});
+    
+    </script> 
+     
 </body> 
 </html>
