@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textile Innovations Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .blog-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .blog-title {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .blog-date {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 25px;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .blog-date i {
+            color: #667eea;
+        }
+
+        .blog-excerpt {
+            font-size: 1.1rem;
+            color: #555;
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            font-style: italic;
+        }
+
+        .blog-image {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: block;
+            background: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+            color: #888;
+            font-style: italic;
+        }
+
+        .content-section {
+            margin: 40px 0;
+        }
+
+        .innovation-item {
+            margin: 40px 0;
+            padding: 25px;
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .innovation-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .innovation-title {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .innovation-number {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .innovation-content {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .key-applications {
+            background: rgba(102, 126, 234, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .key-applications h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .application-item {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+            color: #555;
+        }
+
+        .application-item::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .conclusion {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .conclusion h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .related-read {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+            border-radius: 10px;
+            color: #2d3436;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .section {
+                padding: 20px;
+                margin: 10px 0;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .blog-title {
+                font-size: 1.5rem;
+            }
+
+            .innovation-title {
+                font-size: 1.2rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .innovation-number {
+                align-self: flex-start;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #5a6fd8, #6a4190);
+        }
+
+        /* Article Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            margin: 2% auto;
+            padding: 0;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 15px 15px 0 0;
+            position: sticky;
+            top: 0;
+            z-index: 1001;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            color: white;
+            background: none;
+            -webkit-background-clip: initial;
+            background-clip: initial;
+            -webkit-text-fill-color: initial;
+            font-size: 1.8rem;
+        }
+
+        .modal-date {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+            margin-top: -5px;
+        }
+
+        .close:hover {
+            opacity: 0.7;
+        }
+
+        .modal-body {
+            padding: 30px;
+            line-height: 1.7;
+            color: #333;
+        }
+
+        .modal-body h3 {
+            color: #2c3e50;
+            margin: 30px 0 15px 0;
+            font-size: 1.4rem;
+            border-left: 4px solid #667eea;
+            padding-left: 15px;
+        }
+
+        .modal-body h4 {
+            color: #34495e;
+            margin: 25px 0 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .modal-body p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .modal-body ul, .modal-body ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .modal-body li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .tech-specs {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .pros, .cons {
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .pros {
+            background: linear-gradient(135deg, rgba(46, 204, 113, 0.1), rgba(39, 174, 96, 0.1));
+            border-left: 4px solid #2ecc71;
+        }
+
+        .cons {
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), rgba(192, 57, 43, 0.1));
+            border-left: 4px solid #e74c3c;
+        }
+
+        .faq-item {
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+                max-height: 85vh;
+            }
+
+            .modal-body {
+                padding: 20px;
+            }
+
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="section" data-section="blog">
+            <h2>Textile Innovations Blog</h2>
+            
+            <div class="blog-content">
+                <h3 class="blog-title">Top Textile Innovations You Should Know in 2025</h3>
+                <div class="blog-date">
+                    <i class="far fa-calendar"></i> 
+                    May 02, 2025
+                </div>
+                <p class="blog-excerpt">
+                    Concerns over sustainability and protecting the environment are leading to the creation of new textile technologies. Self-healing textiles and bio-based fibres are among the trends this year, helping to build a more environmentally friendly, clever and high-performance textile industry.
+                </p>
+                
+                <div class="blog-image">
+                    <img src="top textile innovations.png" alt="Top Textile Innovations" style="width: 100%; height: auto; border-radius: 15px;">
+                </div>
+                
+                <div class="content-section">
+                    <div class="innovation-item">
+                        <h4 class="innovation-title">
+                            <span class="innovation-number">1</span>
+                            Self-Healing Fabrics: The Way to Make Clothing Long-Lasting
+                        </h4>
+                        <div class="innovation-content">
+                            <p>MGs can repair themselves when they get damaged. It is no longer just science fiction; self-healing textiles are being created in 2025. The fabrics have the ability to automatically heal small cuts and scrapes which saves on repairs.</p>
+                            <p>Microcapsules or polymers are added to the fibers of the fabric in order to make it self-healing. A healing ingredient is added to these capsules and when damage to the fabric occurs, it releases the agent to instantly stop any holes and bring back the fibre's strength.</p>
+                        </div>
+                        <div class="key-applications">
+                            <h4>Key Applications:</h4>
+                            <div class="application-item">For military personnel, self-healing materials are necessary since their gear must hold up for a long time and remain durable.</div>
+                            <div class="application-item">Various healthcare products, like gowns and bandages, are more durable and less expensive if made from self-healing textiles.</div>
+                            <div class="application-item">Because athletes participating in extreme and outdoor activities often wear lightweight and breathable sports apparel, having self-healing textiles added could increase their clothing's ability to stand up to damage from harsh weather and conditions.</div>
+                        </div>
+                    </div>
+
+                    <div class="innovation-item">
+                        <h4 class="innovation-title">
+                            <span class="innovation-number">2</span>
+                            Temperature-Regulating Technology
+                        </h4>
+                        <div class="innovation-content">
+                            <p>Temperature-controlling clothes are getting more popular since they respond to date changes around you or inside your body. Many people call them smart textiles because they can react to changes around them.</p>
+                            <p>The addition of Phase Change Materials to these fabrics allows them to help people remain comfortable in different temperatures. Also, the properties of the fabric can improve when exposed to heat, humidity or moisture in shape memory polymers, creating extra comfort for the person wearing them.</p>
+                        </div>
+                        <div class="key-applications">
+                            <h4>Key Applications:</h4>
+                            <div class="application-item">Workers in extreme weather rely on smart textiles in their jackets, shoes and other clothing to keep their body temperatures under control.</div>
+                            <div class="application-item">Many people are choosing to get bedding that can help regulate temperature to sleep more deeply.</div>
+                            <div class="application-item">New sportswear can fit around an athlete's body to either keep them warm or cool which allows them to perform better.</div>
+                        </div>
+                    </div>
+
+                    <div class="innovation-item">
+                        <h4 class="innovation-title">
+                            <span class="innovation-number">3</span>
+                            Bio-Based and Lab-Grown Fibres
+                        </h4>
+                        <div class="innovation-content">
+                            <p>Tomorrow's clothing industry must tackle sustainability, as more effort is required to move away from synthetic fibres made of petroleum. Thanks to developments in bio-based fibres and laboratory-made materials, sustainable fashion is flourishing.</p>
+                            <p>Fibres created from these resources can come from plants, algae or fungi. Among the new materials developed are mycelium leather, a type of leather produced from fungi and algae-based fibres which act as sustainable and biodegradable textiles.</p>
+                            <p>Lab researchers have learned to create spider silk using bacteria or yeast in their laboratories. Because silk is both strong and bendable, many people use it in the clothing industry and as a medical material.</p>
+                        </div>
+                        <div class="key-applications">
+                            <h4>Key Applications:</h4>
+                            <div class="application-item">Brands Stella McCartney and Adidas are now promoting styles that use less plastic and leather.</div>
+                            <div class="application-item">Medical Textiles: Because it is safe for the body and strong, spider silk produced in the lab is being studied for use in suturing and covering wounds.</div>
+                        </div>
+                    </div>
+
+                    <div class="innovation-item">
+                        <h4 class="innovation-title">
+                            <span class="innovation-number">4</span>
+                            Electronic Textiles
+                        </h4>
+                        <div class="innovation-content">
+                            <p>E-textiles consist of fabric combined with sensors, actuators or conductive yarns. They are being applied in technologies like smartwatches, fitness trackers and clothing designed for medical use.</p>
+                            <p>Currently, textile manufacturing involves adding sensors and microchips directly to the fabric. This helps the textile measure temperature, heart rate, muscle exercises and movements, all without losing its comfort and flexibility.</p>
+                            <p>The development of e-textiles is helping create fresh products in healthcare, the sporting world and the armed forces. As more studies continue, smart textiles will be even more valuable, helping them play an essential role in fashion and technology by 2025.</p>
+                        </div>
+                        <div class="key-applications">
+                            <h4>Key Applications:</h4>
+                            <div class="application-item">Continuous monitoring of health with Medical Wearables: Military personnel can watch their heart rate, blood pressure and breathing rate at any time.</div>
+                            <div class="application-item">Wearable technology in sport has gear that tracks and analyzes a person's athletic data.</div>
+                            <div class="application-item">When uniforms are made of defence textiles, they can record soldiers' vital signs and quickly send that data to those in charge.</div>
+                        </div>
+                    </div>
+
+                    <div class="innovation-item">
+                        <h4 class="innovation-title">
+                            <span class="innovation-number">5</span>
+                            Recycled Fibres and Circular Textiles
+                        </h4>
+                        <div class="innovation-content">
+                            <p>Circular economy ideas are gathering speed in the textile industry as designers strive to recycle fabrics to make new clothes. Using recycled fibres is playing a major role in developing the textile industry. Now, companies can take post-consumer textiles and use them to craft excellent new yarns and fabrics.</p>
+                            <p>It is becoming easier to recycle polyester, cotton and wool. For example, new processes in chemical recycling have let PET be recycled and reused as fibres without reducing its quality.</p>
+                            <p>We anticipate that in 2025, more steps will be taken to use circular textiles, through using materials repetitively and recycling them. Patagonia and Adidas are now making clothes out of recycled polyester and this is only the beginning.</p>
+                        </div>
+                        <div class="key-applications">
+                            <h4>Key Applications:</h4>
+                            <div class="application-item">Recycled Materials: Some top sports brands are making use of recycled materials in their activewear and outdoor products.</div>
+                            <div class="application-item">Fashion: As a result of circular fashion, brands find new ways to make products sustainably and use recycled resources.</div>
+                        </div>
+                    </div>
+
+                    <div class="innovation-item">
+                        <h4 class="innovation-title">
+                            <span class="innovation-number">6</span>
+                            Antimicrobial and Antiviral Textiles
+                        </h4>
+                        <div class="innovation-content">
+                            <p>Because health and hygiene issues are rising, especially after the COVID-19 outbreak, many are using antimicrobial and antiviral textiles for daily and hospital purposes.</p>
+                            <p>Fabrics are made safe by using silver nanoparticles, chitosan or quaternary ammonium compounds which prevent different microbes from growing. The technology is found in healthcare, but it's also becoming popular in other fields such as fashion, textiles for homes and clothing for outdoors.</p>
+                        </div>
+                        <div class="key-applications">
+                            <h4>Key Applications:</h4>
+                            <div class="application-item">Antimicrobial Gowns, Sheets and Bandages: Medical textiles that help prevent hospital patients from getting infections.</div>
+                            <div class="application-item">Sports and Work Uniforms: Keeps you protected from germs and odours for a longer time.</div>
+                            <div class="application-item">Many garments such as socks, shirts and jackets are now being treated with antimicrobials.</div>
+                        </div>
+                    </div>
+
+                    <div class="innovation-item">
+                        <h4 class="innovation-title">
+                            <span class="innovation-number">7</span>
+                            3D Knitting and Seamless Garments
+                        </h4>
+                        <div class="innovation-content">
+                            <p>The introduction of 3D knitting is considered one of the most significant developments in manufacturing textiles. Thanks to this technology, no cutting and sewing is required to produce an entire garment. In the end, this leads to a more flexible article of clothing, greater sustainability and quicker production.</p>
+                            <p>Companies such as Shima Seiki and Stoll are making use of 3D knitting to manufacture tailored garments with few or no waste from the traditional textile sector.</p>
+                        </div>
+                        <div class="key-applications">
+                            <h4>Key Applications:</h4>
+                            <div class="application-item">Fashion: Garments that come in the right size and need no modifications.</div>
+                            <div class="application-item">Sportswear: Types of clothing designed to perform, stay light, be durable and be comfortable.</div>
+                            <div class="application-item">Medical Textiles: Orthopaedic supports and compression clothes provided for your needs.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="conclusion">
+                    <h3>Conclusion</h3>
+                    <p>By 2025, the textile industry is set to become more creative, eco-friendly and innovative than it has ever been. Thanks to these new technologies, the industry is heading towards an era where fashion and its usefulness work together with sustainability.</p>
+                    <p>Anyone interested in textiles, both as a career or a way to be environmentally conscious, should follow these trends. Besides showing us the direction for textile manufacturing, they also help us shape a better world and environment.</p>
+                    <p>Remember that innovations in the textile industry are making a difference in how we produce and use clothes and gear.</p>
+                </div>
+
+                <div class="related-read">
+                    <strong>Related read:</strong><br>
+                    Don't miss out this !!! <br>
+                    <a href="#" onclick="openModal()" style="color: #2d3436; text-decoration: none; border-bottom: 2px solid #2d3436; padding-bottom: 2px; font-weight: 600; cursor: pointer;">Self-Healing Fabrics: The Hidden Science Behind Clothing That Repairs Itself</a><br>
+                    
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal for Self-Healing Fabrics Article -->
+    <div id="articleModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>Self-Healing Fabrics: The Hidden Science Behind Clothing That Repairs Itself</h2>
+                <div class="modal-date">April 29, 2025</div>
+            </div>
+            <div class="modal-body">
+                <p>Think about a shirt that patches its own rip, a bandage able to seal itself up or a military uniform that recovers from harm without needing thread, needle or effort. This is a real and present day situation. We are finally seeing self-healing textiles and in 2025, research is finding its way into real-life solutions.</p>
+                
+                <p>We'll look at what self-healing fabrics are, the technologies behind them, their main uses and findings from researchers, plus what they mean for students, professionals and the textile industry.</p>
+
+                <h3>What Are Self-Healing Textiles?</h3>
+                <p>These textiles are capable of repairing minor cuts, punctures or rubs by themselves or with very little help, normally in response to heat, light, moisture or pressure. The idea draws from biology, for instance, when our skin recovers from a scratch.</p>
+                
+                <p>The way a material is structured allows it to recover strength, protecting ability or look after sustaining damage.</p>
+
+                <h3>How Do They Work?</h3>
+                <p>There are two primary mechanisms:</p>
+                
+                <div class="highlight-box">
+                    <h4>1. Intrinsic Self-Healing</h4>
+                    <ul>
+                        <li>Involves polymers or materials that naturally form reversible bonds.</li>
+                        <li>Healing occurs through hydrogen bonding, ionic bonding, or disulfide links.</li>
+                        <li>Triggered by mild heat, moisture, or mechanical stress.</li>
+                    </ul>
+                    
+                    <h4>2. Extrinsic Self-Healing</h4>
+                    <ul>
+                        <li>Uses microcapsules or vascular networks embedded in the fibre.</li>
+                        <li>When the fabric tears, these capsules rupture and release healing agents like resins or adhesives.</li>
+                        <li>These agents react and seal the damage, similar to how glue works.</li>
+                    </ul>
+                </div>
+
+                <h3>A Brief History of Self-Healing Textiles</h3>
+                <p>The concept dates back to the early 2000s when polymer chemists began exploring reversible bonds in smart materials. However, it wasn't until the 2010s that textile researchers started applying these principles to fabrics.</p>
+                
+                <p>Early trials used microcapsule-based coatings, but the fabric performance was weak. Now in 2025, we have fabrics made from engineered fibres that possess built-in self-healing capabilities with high durability, flexibility, and wash resistance.</p>
+
+                <h3>Key Materials & Fibre Systems Used</h3>
+                <ul>
+                    <li><strong>Polyurethane Elastomers:</strong> Highly stretchable and capable of reformation at low temperatures.</li>
+                    <li><strong>Polycaprolactone (PCL):</strong> A biodegradable polyester often used in medical applications.</li>
+                    <li><strong>Supramolecular Polymers:</strong> Form reversible, non-covalent bonds that can heal upon moisture or heat.</li>
+                    <li><strong>Hydrogels:</strong> Used in medical textiles for wound healing and absorbency.</li>
+                    <li><strong>Graphene Oxide and MXenes:</strong> Used in high-end smart textiles with dual properties (healing + conductivity).</li>
+                </ul>
+
+                <h3>Applications of Self-Healing Fabrics</h3>
+                
+                <h4>1. Medical & Healthcare</h4>
+                <ul>
+                    <li>Smart wound dressings that repair tears and maintain sterility.</li>
+                    <li>Textiles that deliver drugs through embedded capsules that activate upon skin contact.</li>
+                </ul>
+
+                <h4>2. Defence & Tactical Gear</h4>
+                <ul>
+                    <li>Uniforms that self-repair to avoid compromising protection.</li>
+                    <li>Fire-retardant textiles that heal burns or abrasions after impact.</li>
+                </ul>
+
+                <h4>3. Sportswear & Outdoor Clothing</h4>
+                <ul>
+                    <li>Stretch garments that recover from micro-tears due to high-mobility use.</li>
+                    <li>Tents, bags, and climbing gear that can survive rough handling.</li>
+                </ul>
+
+                <h4>4. Automotive & Aerospace</h4>
+                <ul>
+                    <li>Upholstery that heals cuts, saving replacement cost.</li>
+                    <li>Suits and covers for space or aviation equipment.</li>
+                </ul>
+
+                <h4>5. Fashion & Consumer Textiles</h4>
+                <ul>
+                    <li>Durable garments that retain a 'new look' longer.</li>
+                    <li>High-end fashion with smart properties, reducing fast fashion waste.</li>
+                </ul>
+
+                <h3>Advanced Textile Mechanisms in 2025</h3>
+                <p>Researchers are now blending self-healing, sensory, and responsive behaviour into a single fabric. These multi-functional fabrics can:</p>
+                <ul>
+                    <li>Detect a tear (via embedded conductive yarns)</li>
+                    <li>Trigger a signal or notification</li>
+                    <li>Start a healing process through in-built stimulus (e.g., heating)</li>
+                </ul>
+                <p>Such developments are creating a new domain of "intelligent textile systems" for healthcare monitoring, protective wear, and active sports.</p>
+
+                <h3>Technical Parameters Worth Noting</h3>
+                <div class="tech-specs">
+                    <p>For textile students and engineers, here are some core values and concepts:</p>
+                    <ul>
+                        <li><strong>Healing Efficiency:</strong> % of original strength recovered; typically 70–95%</li>
+                        <li><strong>Activation Trigger:</strong> Heat (50–90°C), moisture, light (UV), or pH</li>
+                        <li><strong>Cycle Durability:</strong> No. of times the fabric can heal (20–50+ cycles)</li>
+                        <li><strong>Tensile Strength Post-Healing:</strong> Often returns to 80–90% of original value</li>
+                        <li><strong>Washing Resistance:</strong> Varies with coating; some endure 20–30 cycles</li>
+                    </ul>
+                    <p>These values are critical when evaluating or comparing self-healing performance for end-use.</p>
+                </div>
+
+                <h3>Who's Leading the Research?</h3>
+                
+                <h4>Indian Institutes:</h4>
+                <ul>
+                    <li><strong>IIT Delhi</strong> – Working on conductive, self-healing yarns for e-textiles.</li>
+                    <li><strong>IISc Bengaluru</strong> – Developing flexible composite healing materials.</li>
+                    <li><strong>NIFT R&D</strong> – Exploring wearable healing fabrics for fashion-tech.</li>
+                </ul>
+                
+                <h4>Global Leaders:</h4>
+                <ul>
+                    <li><strong>Harvard University</strong> – Created stretchable, transparent healing hydrogels.</li>
+                    <li><strong>KAIST (Korea)</strong> – Developed polyurethane-based healing fibres for military.</li>
+                    <li><strong>MIT</strong> – Leading smart sensing and nano-coating textile research.</li>
+                </ul>
+
+                <h3>Benefits & Challenges of Self-Healing Textiles</h3>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>Benefits:</h4>
+                        <ul>
+                            <li>Extended garment life, reducing textile waste.</li>
+                            <li>Reduced cost of replacement and repairs.</li>
+                            <li>Enhanced safety and durability in extreme conditions.</li>
+                            <li>Compatibility with wearable electronics and sensors.</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>Challenges:</h4>
+                        <ul>
+                            <li>Cost of production remains high.</li>
+                            <li>Some systems require controlled conditions (like heat).</li>
+                            <li>Durability under real-world washing and abrasion is still limited.</li>
+                            <li>Commercial scalability is under testing.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Lifecycle & Sustainability of Self-Healing Textiles</h3>
+                <p>One of the major drivers behind self-healing fabrics is their potential to extend product life, thereby reducing textile waste and carbon emissions. But what happens to these textiles at the end of their life?</p>
+                
+                <div class="highlight-box">
+                    <h4>♻ End-of-Life Management</h4>
+                    <p>Unlike traditional fabrics that often end up in landfills, self-healing textiles offer multiple sustainable paths:</p>
+                    <ul>
+                        <li><strong>Repair vs. Replace:</strong> The biggest benefit is that garments last longer, reducing the need for early disposal.</li>
+                        <li><strong>Recyclability:</strong> Some self-healing polymers are designed to be chemically recyclable, allowing the recovery of monomers.</li>
+                        <li><strong>Biodegradability:</strong> Research is now shifting to bio-based healing agents (e.g., from chitosan or proteins), which can break down safely in the environment.</li>
+                        <li><strong>Thermal Recovery:</strong> Materials like PCL (polycaprolactone) can be melted and reused with minimal degradation.</li>
+                    </ul>
+                </div>
+
+                <h3>⚡ Hybrid Functions: Healing + Energy Storage + Sensing</h3>
+                <p>The next evolution of self-healing textiles goes beyond repair—it's about multi-functionality.</p>
+                <p>Researchers are combining:</p>
+                <ul>
+                    <li>Self-healing polymers</li>
+                    <li>Conductive yarns or nanocoatings</li>
+                    <li>Sensors and micro-supercapacitors</li>
+                </ul>
+                <p>This leads to textiles that can: Heal themselves, Store energy, Sense damage or pressure, and Communicate wirelessly.</p>
+
+                <h3>Environmental Impact: A Mixed Picture?</h3>
+                <p>While the goal of self-healing textiles is sustainability, it's not always a straightforward win.</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>The Pros:</h4>
+                        <ul>
+                            <li>Reduces product disposal and frequency of purchase</li>
+                            <li>Enables repairable fashion (aligned with slow fashion values)</li>
+                            <li>Lowers carbon footprint through extended lifecycle</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>The Concerns:</h4>
+                        <ul>
+                            <li>Some polymers are still petrochemical-based</li>
+                            <li>Encapsulation techniques may introduce non-biodegradable residues</li>
+                            <li>Not all healing agents are environmentally neutral</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Industry Outlook for 2026 and Beyond</h3>
+                <ul>
+                    <li><strong>Retail Brands</strong> are eyeing healing fabrics for luxury & high-performance apparel.</li>
+                    <li><strong>Defense Contracts</strong> are expected to mandate repairability in next-gen uniforms.</li>
+                    <li><strong>Smart Homes</strong> may see self-repairing curtains, upholstery, and coverings.</li>
+                </ul>
+                <p>The rise of AI and nanotech will only push this frontier further. You may soon own a shirt that heals, tracks your heartbeat, and glows on command—all in one fabric.</p>
+
+                <h3>❓ FAQ</h3>
+                <div class="faq-item">
+                    <div class="faq-question">Q1: Can a self-healing fabric repair large tears?</div>
+                    <div>Not yet. Most current systems handle micro-cuts or abrasions, but research is moving toward larger damage repair.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q2: Are these fabrics safe for skin contact?</div>
+                    <div>Yes, most healing agents are encapsulated. Biopolymer-based versions are already approved for medical use.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q3: Can I wash self-healing garments?</div>
+                    <div>It depends. Some materials withstand 20+ washes, but not all are commercial-grade yet.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q4: Is this technology available in India?</div>
+                    <div>Pilot projects and prototypes are being developed by IITs and NIFT. Commercial-scale use is still emerging.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q5: How can I work in this field?</div>
+                    <div>Focus on material science, textile chemistry, and R&D in smart fabrics. Join innovation-focused companies or pursue M.Tech/PhD with a textile R&D project.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('articleModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('articleModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('articleModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
